@@ -13,7 +13,7 @@ TG_TOKEN = os.getenv("TG_TOKEN")
 
 BOT_USERNAME = "honest_dick_meter_bot"  # Replace with your bot's username (without @)
 
-bot = telebot.TeleBot(TG_TOKEN, parse_mode="HTML")  # Enable HTML parsing if needed
+bot = telebot.TeleBot(TG_TOKEN, parse_mode="HTML")  # Enable HTML parsing if needed.
 
 
 low_number_phrases = [
