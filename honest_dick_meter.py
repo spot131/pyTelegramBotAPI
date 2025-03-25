@@ -109,6 +109,7 @@ def inline_response(query):
     
     if random.random() < 0.2:
         number = 0
+        response_text = "0"
         message_text = f"Вас посетили гномы-хуекрады, член не найден"
     elif random.random() < 0.5:
         number = random.randint(11, 25)
