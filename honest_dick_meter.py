@@ -131,7 +131,7 @@ def inline_response(query):
         )
     )
 
-    bot.answer_inline_query(query.id, [result], cache_time=0)  # Shows only this fixed option
+    bot.answer_inline_query(query.id, [result], cache_time=1)  # Shows only this fixed option
 
 # Start the bot
 logging.info("Inline bot is running with instant random response...")
