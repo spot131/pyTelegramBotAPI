@@ -39,6 +39,26 @@ low_number_phrases = [
     "ое дрочило",
     "ый боброчёс",
     "ый потный мексиканец"
+    "ый быстрый гонзалес"
+    "ый молчаливый боб"
+    "ая хуинушка" 
+    "ый посошок"
+    "ый маленький мук"
+    "ый член-корреспондента"
+    "ый ванька-встанька"
+    "ый часовой у мавзолея"
+    "ый боец невидимого фронта"
+    "ый влагалищный кракен"
+    "ый шириночный левиафан"
+    "ый мертвый орёл"
+    "ый гонорейный камикадзе"
+    "ый мелкий чиновник"
+    "ый опытный аппаратчик"
+    "ый ржавый обрез"
+    "ый терпкий пиструн"
+    "ый солоноватый гриб"
+    "ый чили-вили"
+    "ый шершавчик"
     ]
 
 high_number_phrases = [
@@ -58,23 +78,46 @@ high_number_phrases = [
     "ое дрочило",
     "ый боброчёс",
     "ый потный мексиканец"
-    ]
+    "ый быстрый гонзалес"
+    "ый молчаливый боб"
+    "ая хуинушка" 
+    "ый посошок"
+    "ый член-корреспондента"
+    "ый ванька-встанька"
+    "ый часовой у мавзолея"
+    "ый боец невидимого фронта"
+    "ый влагалищный кракен"
+    "ый шириночный левиафан"
+    "ый мертвый орёл"
+    "ый гонорейный камикадзе"
+    "ый опытный аппаратчик"
+    "ый ржавый обрез"
+    "ый терпкий пиструн"
+    "ый солоноватый гриб"
+    "ый биг бен"
+    "ая эйфелева башня"
+    "ая статуя свободы"
+    "ая пирамида Хеопса"
+    "ый колосс Родосский"
+    "ый небоскреб"
+    "ый чили-вили"
+    "ый шершавчик"
+     ]
 
 @bot.inline_handler(lambda query: True)  
 def inline_response(query):
     
-    if random.random() < 0.1:
+    if random.random() < 0.2:
         number = 0
         message_text = f"Вас посетили гномы-хуекрады, член не найден"
-    # 30% chance to get 11-25, 70% chance to get 1-10
-    elif random.random() < 0.6:
+    elif random.random() < 0.5:
         number = random.randint(11, 25)
         response_text = random.choice(high_number_phrases)
+        message_text = f"{number}-сантиметров{response_text}"
     else:
         number = random.randint(1, 10)
         response_text = random.choice(low_number_phrases)
-
-    message_text = f"{number}-сантиметров{response_text}"
+        message_text = f"{number}-сантиметров{response_text}"    
 
     # Log the response
     logging.info(f"User: {query.from_user.username or 'UnknownUser'} -> {number}: {response_text}")
@@ -88,7 +131,7 @@ def inline_response(query):
         )
     )
 
-    bot.answer_inline_query(query.id, [result], cache_time=1)  # Shows only this fixed option
+    bot.answer_inline_query(query.id, [result], cache_time=0)  # Shows only this fixed option
 
 # Start the bot
 logging.info("Inline bot is running with instant random response...")
