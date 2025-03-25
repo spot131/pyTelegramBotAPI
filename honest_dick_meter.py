@@ -107,7 +107,7 @@ high_number_phrases = [
 @bot.inline_handler(lambda query: True)  
 def inline_response(query):
     
-    if random.random() < 0.2:
+    if random.random() < 0.1:
         number = 0
         response_text = "0"
         message_text = f"Вас посетили гномы-хуекрады, член не найден"
